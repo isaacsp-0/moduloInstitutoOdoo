@@ -1,0 +1,53 @@
+<odoo>
+  <data>
+    <record id="instituto_asignatura_tree" model="ir.ui.view">
+    <field name="name">instituto.asignatura.tree</field>
+    <field name="model">instituto.asignatura</field>
+    <field name="arch" type="xml">
+        <tree>
+            <field name="name"/>
+            <field name="curso"/>
+            <field name="estudiantes"/>
+            
+        </tree>
+    </field>
+</record>
+
+<record id="instituto_asignatura_form" model="ir.ui.view">
+    <field name="name">instituto.asignatura.form</field>
+    <field name="model">instituto.asignatura</field>
+    <field name="arch" type="xml">
+        <form>
+            <sheet>
+                <group name="group_top" string="Informacion sobre asignatura">
+                    <group name="group_left">
+                        <field name="name" class="letter"/>
+                        <field name="curso" class="letter"/>
+                        <field name="estudiantes"/>
+                        
+                    </group>
+                    <group name="group_right">
+                        
+                    </group>
+                </group>
+            </sheet>
+        </form>
+    </field>
+</record>
+
+<record model="ir.actions.act_window" id="asignatura_action_window">
+    <field name="name">asignatura</field>
+    <field name="res_model">instituto.asignatura</field>
+    <field name="view_mode">tree,form</field>
+    <field name="help" type="html">
+        <p class="oe_view_nocontent_create">
+            asignatura
+        </p>
+        <p>
+            Click 'Crear' para añadir nuevos elementos.
+        </p>
+    </field>
+</record>
+
+  </data>
+</odoo>  

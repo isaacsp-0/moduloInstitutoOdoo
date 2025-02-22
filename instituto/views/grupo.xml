@@ -1,0 +1,56 @@
+<odoo>
+  <data>
+    <record id="instituto_grupo_tree" model="ir.ui.view">
+      <field name="name">instituto.grupo.tree</field>
+      <field name="model">instituto.grupo</field>
+      <field name="arch" type="xml">
+          <tree>
+              <field name="name"/>
+              <field name="tutor"/>
+              <field name="anio"/>
+              <field name="curso"/>
+          </tree>
+      </field>
+    </record>
+
+ 
+
+    <record id="grupo_form" model="ir.ui.view">
+      <field name="name">instituto.grupo.form</field>
+      <field name="model">instituto.grupo</field>
+      <field name="arch" type="xml">
+          <form>
+              <sheet >
+                    <group name="group_top" string="Grupo">
+                      <group name="group_left" string="Datos">
+                          <field name="name" class="letter"/>
+                          <field name="tutor" class="letter"/>
+                          <field name="anio" class="letter"/>
+                          <field name="curso" class="letter"/>
+                      </group>
+                      <group name="group_right" string="Listado de estudiantes">
+                           <field name="estudiantes"/>
+                      </group>
+                  </group>                                  
+              </sheet>
+          </form> 
+        </field>
+    </record>
+
+
+
+    <record model="ir.actions.act_window" id="grupo_action_window">
+        <field name="name">grupo</field>
+        <field name="res_model">instituto.grupo</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                grupo
+            </p>
+            <p>
+                Click 'Crear' para añadir nuevos elementos.
+            </p>
+        </field>
+    </record>
+  </data>
+</odoo>

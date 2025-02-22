@@ -1,0 +1,57 @@
+<odoo>
+  <data>
+    <record id="instituto_horario_tree" model="ir.ui.view">
+    <field name="name">instituto.horario.tree</field>
+    <field name="model">instituto.horario</field>
+    <field name="arch" type="xml">
+        <tree>
+            <field name="name"/>
+            <field name="asignatura"/>
+            <field name="dia_semana"/>
+            <field name="hora_inicio"/>
+            <field name="hora_fin"/>
+            
+        </tree>
+    </field>
+</record>
+
+<record id="instituto_horario_form" model="ir.ui.view">
+    <field name="name">instituto.horario.form</field>
+    <field name="model">instituto.horario</field>
+    <field name="arch" type="xml">
+        <form>
+            <sheet>
+                <group name="group_top" string="Información sobre horario">
+                    <group name="group_left">
+                        <field name="name" class="letter"/>
+                        <field name="asignatura" class="letter"/>
+                        <field name="curso" readonly="1"/>
+                        <field name="grupo" domain="[('curso', '=', curso)]"/>
+                    </group>
+                    <group name="group_right">
+                        <field name="dia_semana" class="letter"/>
+                        <field name="hora_inicio" widget="float_time" class="letter"/>
+                        <field name="hora_fin" widget="float_time" class="letter"/>
+                    </group>
+                </group>
+            </sheet>
+        </form>
+    </field>
+</record>
+
+<record model="ir.actions.act_window" id="horario_action_window">
+    <field name="name">horario</field>
+    <field name="res_model">instituto.horario</field>
+    <field name="view_mode">tree,form</field>
+    <field name="help" type="html">
+        <p class="oe_view_nocontent_create">
+            horario
+        </p>
+        <p>
+            Click 'Crear' para añadir nuevos elementos.
+        </p>
+    </field>
+</record>
+
+  </data>
+</odoo>  

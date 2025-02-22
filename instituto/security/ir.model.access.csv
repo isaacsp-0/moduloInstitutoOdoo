@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_instituto_instituto,instituto.instituto,model_instituto_instituto,base.group_user,1,1,1,1

@@ -1,0 +1,52 @@
+<odoo>
+  <data>
+    <record id="instituto_calificacion_tree" model="ir.ui.view">
+      <field name="name">instituto.calificacion.tree</field>
+      <field name="model">instituto.calificacion</field>
+      <field name="arch" type="xml">
+          <tree>
+              <field name="estudiante"/>
+              <field name="asignatura"/>
+              <field name="name"/>
+          </tree>
+      </field>
+    </record>
+
+ 
+
+    <record id="calificacion_form" model="ir.ui.view">
+      <field name="name">instituto.calificacion.form</field>
+      <field name="model">instituto.calificacion</field>
+      <field name="arch" type="xml">
+          <form>
+              <sheet>
+                    <group name="group_top" string="Calificación">
+                      <group name="group_right" string="Nota" >
+                          <field name="name" class="letter"/>
+                      </group>
+                      <group name="group_left" string="Alumno">
+                          <field name="estudiante" class="letter"/>
+                          <field name="asignatura" class="letter"/>
+                      </group>
+                  </group>                                  
+              </sheet>
+          </form> 
+        </field>
+    </record>
+
+    
+    <record model="ir.actions.act_window" id="calificacion_action_window">
+        <field name="name">calificacion</field>
+        <field name="res_model">instituto.calificacion</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                calificacion
+            </p>
+            <p>
+                Click 'Crear' para añadir nuevos elementos.
+            </p>
+        </field>
+    </record>
+  </data>
+</odoo>

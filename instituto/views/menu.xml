@@ -1,0 +1,64 @@
+<odoo>
+    <data>
+        <menuitem id="menu_instituto_root"
+                  name="Instituto"
+                  sequence="10"/>
+
+            <menuitem id="menu_profesorado_barra_root"
+                    name="Profesorado"
+                    parent="menu_instituto_root"
+                    sequence="1"/>
+
+                    <menuitem id="menu_profesor"
+                        name="Profesores"
+                        parent="menu_profesorado_barra_root"
+                        sequence="1"
+                        action="profesor_action_window"/>
+
+            <menuitem id="menu_alumnado_barra_root"
+                    name="Alumnado"
+                    parent="menu_instituto_root"
+                    sequence="2"/>
+
+                <menuitem id="menu_estudiante"
+                        name="Estudiante"
+                        parent="menu_alumnado_barra_root"
+                        sequence="1"
+                        action="estudiante_action_window"/>
+
+                <menuitem id="menu_calificaciones"
+                        name="Calificaciones"
+                        parent="menu_alumnado_barra_root"
+                        sequence="2"
+                        action="calificacion_action_window"/>
+            
+            <menuitem id="menu_organizacion_barra_root"
+                    name="Organización"
+                    parent="menu_instituto_root"
+                    sequence="3"/>
+
+                <menuitem id="menu_curso"
+                        name="Curso"
+                        parent="menu_organizacion_barra_root"
+                        sequence="1"
+                        action="curso_action_window"/>
+
+                <menuitem id="menu_grupo"
+                        name="Grupo"
+                        parent="menu_organizacion_barra_root"
+                        sequence="2"
+                        action="grupo_action_window"/>
+                
+                <menuitem id="menu_horario"
+                        name="Horario"
+                        parent="menu_organizacion_barra_root"
+                        sequence="3"
+                        action="horario_action_window"/>
+
+                <menuitem id="menu_asignatura"
+                        name="Asignatura"
+                        parent="menu_organizacion_barra_root"
+                        sequence="4"
+                        action="asignatura_action_window"/>
+    </data>
+</odoo>

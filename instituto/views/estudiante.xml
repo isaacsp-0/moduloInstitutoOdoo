@@ -1,0 +1,125 @@
+<odoo>
+  <data>
+    <record id="instituto_estudiante_tree" model="ir.ui.view">
+      <field name="name">instituto.estudiante.tree</field>
+      <field name="model">instituto.estudiante</field>
+      <field name="arch" type="xml">
+          <tree>
+              <field name="name"/>
+              <field name="nombre"/>
+              <field name="apellido"/>
+          </tree>
+      </field>
+    </record>
+
+
+    <record id="estudiante_form" model="ir.ui.view">
+      <field name="name">instituto.estudiante.form</field>
+      <field name="model">instituto.estudiante</field>
+      <field name="arch" type="xml">
+          <form>
+              <sheet>
+                    <group name="group_top" string="Estudiante">
+                      <group name="group_left" string="Foto">
+                          <field name="foto" attrs="{'invisible': True}" style="max-width: 100px; max-height: 100px; object-fit: cover;"/>
+                          <field name="fotoAlumno" attrs="{'invisible': [('foto', '=', True)]}" placeholder="Introduce la URL de la imagen..."/>
+                          <field name="fotoAlumno" widget="image_url" attrs="{'invisible': [('foto', '=', False)]}"/>
+                      </group>
+                      <group name="group_right" string="Datos del alumno">
+                          <field name="name" class="letter"/>
+                          <field name="nombre" class="letter"/>
+                          <field name="apellido" class="letter"/>
+                          <field name="fechaNac" class="letter"/>
+                          <field name="direccion" class="letter"/>                            
+                          <field name="telefono" class="letter" widget="phone"/>
+                          <field name="email" class="letter" widget="email"/>
+                      </group>
+
+                      <group name="group_left" string="Asignaciones">
+                          <field name="grupo"/>
+                          <field name="asignatura">
+                            <kanban>
+                                <templates>
+                                    <t t-name="kanban-box">
+                                        <div class="oe_kanban_global_click">
+                                            <field name="name"/>
+                                            <field name="curso"/>
+                                        </div>
+                                    </t>
+                                </templates>
+                            </kanban>
+                          </field>
+                      </group>
+                      <group name="group_right" string="Calificaciones">
+                          <field name="calificaciones">
+                            <kanban>
+                                <templates>
+                                    <t t-name="kanban-box">
+                                        <div class="oe_kanban_global_click">
+                                            <field name="asignatura"/>
+                                        </div>
+                                        <div class="oe_kanban_global_click">
+                                            <field name="name"/>
+                                        </div>
+                                    </t>
+                                </templates>
+                            </kanban>
+                          </field>
+                      </group>
+                  </group>                                  
+              </sheet>
+          </form> 
+        </field>
+    </record>
+
+
+
+    <record id="instituto_estudiante_kanban" model="ir.ui.view">
+    <field name="name">instituto.estudiante.kanban</field>
+    <field name="model">instituto.estudiante</field>
+    <field name="arch" type="xml">
+        <kanban class="kanban_bg">
+            <templates>
+                <t t-name="kanban-box">
+                    <div class="o_kanban_record oe_kanban_global_click" style="background-color: rgba(0,0,0,0); border-color: rgba(0,0,0,0)">
+                        <div class="o_kanban_content" style="background-color: rgba(0,0,0,0); border-color: rgba(0,0,0,0)">
+                            <div class="kanban_record">
+                                <field name="foto" attrs="{'invisible': True}" style="max-width: 30px; max-height: 30px; object-fit: cover;"/>
+                                <field name="fotoAlumno" attrs="{'invisible': [('foto', '=', True)]}" placeholder="Introduce la URL de la imagen..."/>
+                                <field name="fotoAlumno" widget="image_url" attrs="{'invisible': [('foto', '=', False)]}"/>
+                                <strong>
+                                    <field name="name"/>
+                                </strong>
+                                <div>
+                                    <field name="nombre"/>
+                                </div>
+                                <div>
+                                    <field name="apellido"/>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </t>
+            </templates>
+        </kanban>
+    </field>
+    </record>
+
+
+
+    <record model="ir.actions.act_window" id="estudiante_action_window">
+    <field name="name">estudiante</field>
+    <field name="res_model">instituto.estudiante</field>
+    <field name="view_mode">kanban,tree,form</field>
+    <field name="help" type="html">
+        <p class="oe_view_nocontent_create">
+            estudiante
+        </p>
+        <p>
+            Click 'Crear' para añadir nuevos elementos.
+        </p>
+    </field>
+    </record>
+  </data>
+</odoo>
